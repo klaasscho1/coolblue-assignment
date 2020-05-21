@@ -81,12 +81,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="productDeliveryLabel" destination="AtH-KL-fcV" id="bDY-EU-zTH"/>
-                                    <outlet property="productDescriptionLabel" destination="RXD-8H-Gzu" id="opX-in-vpb"/>
-                                    <outlet property="productImageView" destination="qpg-N1-42v" id="HCy-CT-WPf"/>
-                                    <outlet property="productNameLabel" destination="tIK-N4-aFO" id="chE-V9-KxT"/>
-                                    <outlet property="productPriceLabel" destination="RXD-8H-Gzu" id="Czj-VX-WG3"/>
-                                    <outlet property="productReviewLabel" destination="tQl-oq-eFL" id="ZUg-wo-E1P"/>
+                                    <outlet property="productDeliveryLabel" destination="AtH-KL-fcV" id="EkX-6X-2AE"/>
+                                    <outlet property="productDescriptionLabel" destination="eeQ-ux-T9Q" id="TvF-b1-2y9"/>
+                                    <outlet property="productImageView" destination="qpg-N1-42v" id="dHn-9v-3Ac"/>
+                                    <outlet property="productNameLabel" destination="tIK-N4-aFO" id="Dz6-lq-O2L"/>
+                                    <outlet property="productPriceLabel" destination="RXD-8H-Gzu" id="1T1-SJ-Q0Z"/>
+                                    <outlet property="productReviewLabel" destination="tQl-oq-eFL" id="jOX-IG-vjE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -22,6 +22,11 @@ class TableViewController: UITableViewController {
 		
 		// Register the reusable product cell to the tableview
 		self.tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: PRODUCT_CELL_ID)
+		
+		let apiManager = APIManager()
+		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products) in
+			print("Complete!")
+		}
 	}
 
 
@@ -46,7 +51,7 @@ extension TableViewController {
 			fatalError("Cell is of unexpected type.")
 		}
 		
-		cell.productNameLabel.text = "Hello world"
+		// cell.productNameLabel.text = "Hello world"
 
 		return cell
 	}

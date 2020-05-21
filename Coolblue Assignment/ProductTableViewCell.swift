@@ -18,6 +18,9 @@ class ProductTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
+		
+		print("Awoke from nib")
+		self.productImageView.image = UIImage(named: "iPhone")
         // Initialization code
     }
 
