@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		F7EB545C24769B5F00DB2C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */; };
 		F7EB545E24769B5F00DB2C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */; };
-		F7EB546024769B5F00DB2C64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545F24769B5F00DB2C64 /* ViewController.swift */; };
+		F7EB546024769B5F00DB2C64 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545F24769B5F00DB2C64 /* TableViewController.swift */; };
 		F7EB546324769B5F00DB2C64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EB546124769B5F00DB2C64 /* Main.storyboard */; };
 		F7EB546524769B6400DB2C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EB546424769B6400DB2C64 /* Assets.xcassets */; };
 		F7EB546824769B6400DB2C64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EB546624769B6400DB2C64 /* LaunchScreen.storyboard */; };
 		F7EB547324769B6500DB2C64 /* Coolblue_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB547224769B6500DB2C64 /* Coolblue_AssignmentTests.swift */; };
+		F7EB547E2476A47B00DB2C64 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,7 @@
 		F7EB545824769B5F00DB2C64 /* Coolblue Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coolblue Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7EB545F24769B5F00DB2C64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7EB545F24769B5F00DB2C64 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F7EB546224769B5F00DB2C64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7EB546424769B6400DB2C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7EB546724769B6400DB2C64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		F7EB546E24769B6500DB2C64 /* Coolblue AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coolblue AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EB547224769B6500DB2C64 /* Coolblue_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coolblue_AssignmentTests.swift; sourceTree = "<group>"; };
 		F7EB547424769B6500DB2C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,8 @@
 			children = (
 				F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */,
 				F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */,
-				F7EB545F24769B5F00DB2C64 /* ViewController.swift */,
+				F7EB545F24769B5F00DB2C64 /* TableViewController.swift */,
+				F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */,
 				F7EB546124769B5F00DB2C64 /* Main.storyboard */,
 				F7EB546424769B6400DB2C64 /* Assets.xcassets */,
 				F7EB546624769B6400DB2C64 /* LaunchScreen.storyboard */,
@@ -200,7 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7EB546024769B5F00DB2C64 /* ViewController.swift in Sources */,
+				F7EB546024769B5F00DB2C64 /* TableViewController.swift in Sources */,
+				F7EB547E2476A47B00DB2C64 /* ProductTableViewCell.swift in Sources */,
 				F7EB545C24769B5F00DB2C64 /* AppDelegate.swift in Sources */,
 				F7EB545E24769B5F00DB2C64 /* SceneDelegate.swift in Sources */,
 			);
