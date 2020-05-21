@@ -12,10 +12,7 @@ class TableViewController: UITableViewController {
 	let PRODUCT_CELL_ID = "productCell"
 	
 	// Mocking the mock data for now
-	let data: [[String : String]] = [[
-		"name" : "iPhone 5",
-		"description" : "Hello World"
-	]]
+	var data: [Product] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,11 +20,42 @@ class TableViewController: UITableViewController {
 		// Register the reusable product cell to the tableview
 		self.tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: PRODUCT_CELL_ID)
 		
+		self.setNavigationItem()
+		
+		self.repopulateWithAPI()
+	}
+	
+	/// Repopulate table with data from API
+	func repopulateWithAPI() {
 		let apiManager = APIManager()
 		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products) in
-			print("Complete!")
+			guard error == nil else {
+				print("Could not retrieve products. Error: \(String(describing: error))")
+				return
+			}
+			
+			guard let products = products else {
+				print("Unexpectedly found no products, no error given.")
+				return
+			}
+			
+			print("Retrieved products succesfully, repopulating table.")
+			
+			self.data = products
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
 		}
 	}
+	
+	/// Set the navigation bar title view to the coolblue logo
+	func setNavigationItem() {
+        let imageView = UIImageView(image: UIImage(named: "CoolblueLogo"))
+
+		imageView.contentMode = .scaleAspectFit
+		
+		self.navigationItem.titleView = imageView
+    }
 
 
 }
