@@ -9,7 +9,8 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-	let PRODUCT_CELL_ID = "productCell"
+	@IBOutlet weak var searchBar: UISearchBar!
+	let PRODUCT_CELL_ID: String = "product-display"
 	
 	// Mocking the mock data for now
 	var data: [Product] = []
@@ -18,17 +19,17 @@ class TableViewController: UITableViewController {
 		super.viewDidLoad()
 		
 		// Register the reusable product cell to the tableview
-		self.tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: PRODUCT_CELL_ID)
+		//self.tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: PRODUCT_CELL_ID)
 		
 		self.setNavigationItem()
 		
-		self.repopulateWithAPI()
+		self.reloadDataWith(query: "")
 	}
 	
 	/// Repopulate table with data from API
-	func repopulateWithAPI() {
+	func reloadDataWith(query: String) {
 		let apiManager = APIManager()
-		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products) in
+		apiManager.searchProducts(by: query, onPage: 1) { (error, products) in
 			guard error == nil else {
 				print("Could not retrieve products. Error: \(String(describing: error))")
 				return
@@ -55,7 +56,7 @@ class TableViewController: UITableViewController {
 		imageView.contentMode = .scaleAspectFit
 		
 		self.navigationItem.titleView = imageView
-    }
+	}
 
 
 }
@@ -76,11 +77,29 @@ extension TableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: PRODUCT_CELL_ID, for: indexPath) as? ProductTableViewCell else {
-			fatalError("Cell is of unexpected type.")
+			fatalError()
 		}
 		
-		// cell.productNameLabel.text = "Hello world"
-
+		let product = data[indexPath.row]
+				
+		cell.nameLabel.text = product.name
+		cell.reviewLabel.text = "9.1/10 (512 reviews)"
+		cell.descriptionLabel.text = product.formattedDescription()
+		cell.priceLabel.text = String(format: "%.02f", product.salesPriceIncVat)
+		cell.deliveryLabel.text = product.nextDayDelivery ? "Morgen in huis" : ""
+		
 		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 200
+	}
+}
+
+extension TableViewController: UISearchBarDelegate {
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		print("Searching: \(String(describing: searchBar.text))")
+		guard let searchString = searchBar.text else { return }
+		self.reloadDataWith(query: searchString)
 	}
 }

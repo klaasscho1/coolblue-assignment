@@ -9,18 +9,16 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-	@IBOutlet weak var productImageView: UIImageView!
-	@IBOutlet weak var productNameLabel: UILabel!
-	@IBOutlet weak var productReviewLabel: UILabel!
-	@IBOutlet weak var productDescriptionLabel: UILabel!
-	@IBOutlet weak var productPriceLabel: UILabel!
-	@IBOutlet weak var productDeliveryLabel: UILabel!
+	@IBOutlet weak var thumbnailImageView: UIImageView!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var reviewLabel: UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var priceLabel: UILabel!
+	@IBOutlet weak var deliveryLabel: UILabel!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-		
-		print("Awoke from nib")
-		self.productImageView.image = UIImage(named: "iPhone")
+
         // Initialization code
     }
 

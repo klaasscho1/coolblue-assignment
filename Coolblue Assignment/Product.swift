@@ -24,4 +24,18 @@ struct Product {
 		self.imageUrl = URL(string: data["productImage"] as! String)!
 		self.nextDayDelivery = data["nextDayDelivery"] as! Bool
 	}
+	
+	func formattedDescription() -> String {
+		var description = ""
+		
+		for usp in usps.prefix(3) {
+			description += "- \(usp)\n"
+		}
+		
+		if usps.count > 3 {
+			description += "..."
+		}
+		
+		return description
+	}
 }
