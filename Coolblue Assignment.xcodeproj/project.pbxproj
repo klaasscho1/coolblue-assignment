@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7D79C9C2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D79C9B2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift */; };
+		F7D79C9E2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D79C9D2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift */; };
 		F7EB545C24769B5F00DB2C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */; };
 		F7EB545E24769B5F00DB2C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */; };
 		F7EB546024769B5F00DB2C64 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB545F24769B5F00DB2C64 /* TableViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7D79C9B2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		F7D79C9D2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		F7EB545824769B5F00DB2C64 /* Coolblue Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coolblue Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				F7EB545F24769B5F00DB2C64 /* TableViewController.swift */,
+				F7D79C9B2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift */,
+				F7D79C9D2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift */,
 			);
 			path = "Table View Controller";
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 				F7EB54802476B57D00DB2C64 /* APIManager.swift in Sources */,
 				F7EB545C24769B5F00DB2C64 /* AppDelegate.swift in Sources */,
 				F7EB545E24769B5F00DB2C64 /* SceneDelegate.swift in Sources */,
+				F7D79C9C2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift in Sources */,
+				F7D79C9E2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift in Sources */,
 				F7EB54822476B68600DB2C64 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
