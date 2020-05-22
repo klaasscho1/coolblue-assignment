@@ -14,6 +14,7 @@ class TableViewController: UITableViewController {
 	
 	// Mocking the mock data for now
 	var data: [Product] = []
+	var imageCacheForProductId = [Int : UIImage]()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -83,10 +84,23 @@ extension TableViewController {
 		let product = data[indexPath.row]
 				
 		cell.nameLabel.text = product.name
-		cell.reviewLabel.text = "9.1/10 (512 reviews)"
+		cell.reviewLabel.text = "\(product.reviewAverage)/10 (\(product.reviewCount) review\(product.reviewCount > 1 ? "s" : ""))"
 		cell.descriptionLabel.text = product.formattedDescription()
 		cell.priceLabel.text = String(format: "%.02f", product.salesPriceIncVat)
 		cell.deliveryLabel.text = product.nextDayDelivery ? "Morgen in huis" : ""
+		
+		if let cachedImage = self.imageCacheForProductId[product.id] {
+			cell.thumbnailImageView.image = cachedImage
+		} else {
+			cell.thumbnailImageView.image = nil
+			
+			product.attemptRetrieveImage { (image) in
+				DispatchQueue.main.async {
+					cell.thumbnailImageView.image = image
+					self.imageCacheForProductId[product.id] = image
+				}
+			}
+		}
 		
 		return cell
 	}
