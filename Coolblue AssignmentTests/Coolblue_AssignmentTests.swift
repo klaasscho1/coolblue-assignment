@@ -12,16 +12,19 @@ import XCTest
 class Coolblue_AssignmentTests: XCTestCase {
 	var apiManager: APIManager!
 	
-    override func setUpWithError() throws {
-        apiManager = APIManager()
-    }
-
-    override func tearDownWithError() throws {
+	override func setUpWithError() throws {
+		apiManager = APIManager()
+	}
+	
+	override func tearDownWithError() throws {
 		try super.tearDownWithError()
-    }
-
-    func testSearchRequest() throws {
-		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products) in
+	}
+	
+	func testSearchRequest() throws {
+		let productRetrievalExpectation = expectation(description: "productsRetrieved")
+		var productResponse: [Product]?
+		
+		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products, _)  in
 			guard let products = products else {
 				if let error = error {
 					fatalError("Did not find any products, error: \(error.localizedDescription)")
@@ -29,8 +32,14 @@ class Coolblue_AssignmentTests: XCTestCase {
 					fatalError("Unknown error trying to find products. Nothing found.")
 				}
 			}
+			productResponse = products
+			productRetrievalExpectation.fulfill()
 		}
-    }
+		
+		waitForExpectations(timeout: 1) { (error) in
+			XCTAssertNotNil(productResponse)
+		}
+	}
 	
 	func testProductParsing() throws {
 		let productJsonString = """

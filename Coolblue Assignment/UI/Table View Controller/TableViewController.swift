@@ -22,6 +22,7 @@ class TableViewController: UITableViewController {
 		
 		self.setNavigationItem()
 		
+		// Set initial data to an empty search, on the first page
 		self.reloadDataWith(query: "", forPage: 1)
 	}
 	
