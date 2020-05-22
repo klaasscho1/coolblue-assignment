@@ -64,6 +64,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7D79C942477C6A300BA31D9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */,
+				F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F7D79C952477C6B200BA31D9 /* Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB545F24769B5F00DB2C64 /* TableViewController.swift */,
+			);
+			path = "Table View Controller";
+			sourceTree = "<group>";
+		};
+		F7D79C962477C6C000BA31D9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F7D79C9A2477C70000BA31D9 /* Storyboard */,
+				F7D79C952477C6B200BA31D9 /* Table View Controller */,
+				F7D79C992477C6EB00BA31D9 /* Table View Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F7D79C972477C6C900BA31D9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F7D79C982477C6D100BA31D9 /* Models */,
+				F7EB547F2476B57D00DB2C64 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F7D79C982477C6D100BA31D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB54812476B68600DB2C64 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F7D79C992477C6EB00BA31D9 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
+		F7D79C9A2477C70000BA31D9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB546124769B5F00DB2C64 /* Main.storyboard */,
+				F7EB546624769B6400DB2C64 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		F7EB544F24769B5E00DB2C64 = {
 			isa = PBXGroup;
 			children = (
@@ -85,15 +146,10 @@
 		F7EB545A24769B5F00DB2C64 /* Coolblue Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				F7EB545B24769B5F00DB2C64 /* AppDelegate.swift */,
-				F7EB545D24769B5F00DB2C64 /* SceneDelegate.swift */,
-				F7EB545F24769B5F00DB2C64 /* TableViewController.swift */,
-				F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */,
-				F7EB547F2476B57D00DB2C64 /* APIManager.swift */,
-				F7EB54812476B68600DB2C64 /* Product.swift */,
-				F7EB546124769B5F00DB2C64 /* Main.storyboard */,
+				F7D79C972477C6C900BA31D9 /* API */,
+				F7D79C942477C6A300BA31D9 /* Application */,
+				F7D79C962477C6C000BA31D9 /* UI */,
 				F7EB546424769B6400DB2C64 /* Assets.xcassets */,
-				F7EB546624769B6400DB2C64 /* LaunchScreen.storyboard */,
 				F7EB546924769B6400DB2C64 /* Info.plist */,
 			);
 			path = "Coolblue Assignment";
