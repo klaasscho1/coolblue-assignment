@@ -31,8 +31,11 @@ struct Product {
 		self.nextDayDelivery = data["nextDayDelivery"] as! Bool
 	}
 	
+	/// Returns a string-formatted version of the object's USPs
 	func formattedDescription() -> String {
 		var description = ""
+		
+		// Max out at 3 properties
 		
 		for usp in usps.prefix(3) {
 			description += "- \(usp)\n"
@@ -42,9 +45,22 @@ struct Product {
 			description += "..."
 		}
 		
-		return description
+		// Trim additional whitespace
+		
+		return description.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 	
+	/// Returns a string-formatted version of the object's price
+	func formattedPrice() -> String {
+		return String(format: "%.02f", self.salesPriceIncVat).replacingOccurrences(of: ".", with: ",")
+	}
+	
+	/// Returns a string-formatted version of the object's reviews 
+	func formattedReviews() -> String {
+		return "\(self.reviewAverage)/10 (\(self.reviewCount) review\(self.reviewCount > 1 ? "s" : ""))"
+	}
+	
+	/// Tries to retrieve the image defined in the object's thumbnail URL.
 	func attemptRetrieveImage(completion: @escaping (UIImage) -> ()) {
 		let session = URLSession(configuration: .default)
 

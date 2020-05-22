@@ -15,7 +15,8 @@ enum APIError: Error {
 class APIManager {
 	let baseUrl = URL(string: "https://bdk0sta2n0.execute-api.eu-west-1.amazonaws.com/ios-assignment")!
 	
-	func searchProducts(by query: String, onPage page: Int, completion: @escaping (Error?, [Product]?) -> Void) {
+	/// Performs a search for a given query, returning the objects on the given page.
+	func searchProducts(by query: String, onPage page: Int, completion: @escaping (Error?, [Product]?, Int?) -> Void) {
 		// Construct the request URL
 		var requestUrlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
 		
@@ -33,38 +34,42 @@ class APIManager {
 		
 		guard let requestUrl = requestUrlComponents.url else { return }
 		
-		// Perform request
+		// Perform data request
 		let task = URLSession.shared.dataTask(with: requestUrl) {(data, response, error) in
 			guard let data = data else { return }
 			// Convert retrieved data to dictionary
 			do {
-				if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String : Any]
-				{
-					guard let rawProducts = jsonArray["products"] as? [[String : AnyObject]] else {
-						completion(APIError.JSONError, nil)
-						return
-					}
-					
-					var products = [Product]()
-					
-					for rawProduct in rawProducts {
-						do {
-							let product = try Product(fromJson: rawProduct)
-							products.append(product)
-						} catch let error {
-							completion(error, nil)
-							return
-						}
-					}
-					
-					completion(nil, products)
-					return
-				} else {
-					completion(APIError.JSONError, nil)
+				guard let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String : Any] else {
+					completion(APIError.JSONError, nil, nil)
 					return
 				}
+				
+				guard let rawProducts = jsonArray["products"] as? [[String : AnyObject]] else {
+					completion(APIError.JSONError, nil, nil)
+					return
+				}
+				
+				var products = [Product]()
+				
+				for rawProduct in rawProducts {
+					do {
+						let product = try Product(fromJson: rawProduct)
+						products.append(product)
+					} catch let error {
+						completion(error, nil, nil)
+						return
+					}
+				}
+				
+				guard let availableProducts = jsonArray["totalResults"] as? Int else {
+					completion(APIError.JSONError, nil, nil)
+					return
+				}
+				
+				completion(nil, products, availableProducts)
+				return
 			} catch let error {
-				completion(error, nil)
+				completion(error, nil, nil)
 				return
 			}
 		}
