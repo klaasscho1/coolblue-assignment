@@ -22,7 +22,7 @@ class Coolblue_AssignmentTests: XCTestCase {
 	
 	func testSearchRequest() throws {
 		let productRetrievalExpectation = expectation(description: "productsRetrieved")
-		var productResponse: [Product]?
+		var productResponse: [SearchQueryResponse.Product]?
 		
 		apiManager.searchProducts(by: "apple", onPage: 1) { (error, products, _)  in
 			guard let products = products else {
@@ -74,18 +74,20 @@ class Coolblue_AssignmentTests: XCTestCase {
 			throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
 		}
 		
-		guard let jsonObject = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String : AnyObject] else {
-			throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+		let decoder = JSONDecoder()
+		
+		do {
+			let parsedProduct = try decoder.decode(SearchQueryResponse.Product.self, from: data)
+			
+			XCTAssertEqual(parsedProduct.id, 785359)
+			XCTAssertEqual(parsedProduct.name, "Apple iPhone 6 32GB Grijs")
+			XCTAssertEqual(parsedProduct.formattedDescription(), """
+			- 32 GB opslagcapaciteit
+			- 4,7 inch Retina HD scherm
+			- iOS 11
+			""")
+		} catch let error {
+			fatalError(error.localizedDescription)
 		}
-		
-		let parsedProduct = try Product(fromJson: jsonObject)
-		
-		XCTAssertEqual(parsedProduct.id, 785359)
-		XCTAssertEqual(parsedProduct.name, "Apple iPhone 6 32GB Grijs")
-		XCTAssertEqual(parsedProduct.formattedDescription(), """
-		- 32 GB opslagcapaciteit
-		- 4,7 inch Retina HD scherm
-		- iOS 11
-		""")
 	}
 }

@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum APIError: Error {
-	case JSONError
-}
-
 class APIManager {
 	let baseUrl = URL(string: "https://bdk0sta2n0.execute-api.eu-west-1.amazonaws.com/ios-assignment")!
 	
