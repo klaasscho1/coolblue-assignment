@@ -16,7 +16,7 @@ class APIManager {
 	let baseUrl = URL(string: "https://bdk0sta2n0.execute-api.eu-west-1.amazonaws.com/ios-assignment")!
 	
 	/// Performs a search for a given query, returning the objects on the given page.
-	func searchProducts(by query: String, onPage page: Int, completion: @escaping (Error?, [Product]?, Int?) -> Void) {
+	func searchProducts(by query: String, onPage page: Int, completion: @escaping (Error?, [SearchQueryResponse.Product]?, Int?) -> Void) {
 		// Construct the request URL
 		var requestUrlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
 		
@@ -38,35 +38,11 @@ class APIManager {
 		let task = URLSession.shared.dataTask(with: requestUrl) {(data, response, error) in
 			guard let data = data else { return }
 			// Convert retrieved data to dictionary
+			let decoder = JSONDecoder()
+			
 			do {
-				guard let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String : Any] else {
-					completion(APIError.JSONError, nil, nil)
-					return
-				}
-				
-				guard let rawProducts = jsonArray["products"] as? [[String : AnyObject]] else {
-					completion(APIError.JSONError, nil, nil)
-					return
-				}
-				
-				var products = [Product]()
-				
-				for rawProduct in rawProducts {
-					do {
-						let product = try Product(fromJson: rawProduct)
-						products.append(product)
-					} catch let error {
-						completion(error, nil, nil)
-						return
-					}
-				}
-				
-				guard let availableProducts = jsonArray["totalResults"] as? Int else {
-					completion(APIError.JSONError, nil, nil)
-					return
-				}
-				
-				completion(nil, products, availableProducts)
+				let response = try decoder.decode(SearchQueryResponse.self, from: data)
+				completion(nil, response.products, response.totalResults)
 				return
 			} catch let error {
 				completion(error, nil, nil)

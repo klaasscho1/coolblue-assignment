@@ -18,7 +18,7 @@
 		F7EB547324769B6500DB2C64 /* Coolblue_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB547224769B6500DB2C64 /* Coolblue_AssignmentTests.swift */; };
 		F7EB547E2476A47B00DB2C64 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */; };
 		F7EB54802476B57D00DB2C64 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB547F2476B57D00DB2C64 /* APIManager.swift */; };
-		F7EB54822476B68600DB2C64 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB54812476B68600DB2C64 /* Product.swift */; };
+		F7EB54822476B68600DB2C64 /* SearchQueryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB54812476B68600DB2C64 /* SearchQueryResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		F7EB547424769B6500DB2C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7EB547D2476A47B00DB2C64 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		F7EB547F2476B57D00DB2C64 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		F7EB54812476B68600DB2C64 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F7EB54812476B68600DB2C64 /* SearchQueryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 		F7D79C982477C6D100BA31D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F7EB54812476B68600DB2C64 /* Product.swift */,
+				F7EB54812476B68600DB2C64 /* SearchQueryResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				F7EB545E24769B5F00DB2C64 /* SceneDelegate.swift in Sources */,
 				F7D79C9C2477D96300BA31D9 /* TableViewController+UITableViewDataSource.swift in Sources */,
 				F7D79C9E2477D98800BA31D9 /* TableViewController+UISearchBarDelegate.swift in Sources */,
-				F7EB54822476B68600DB2C64 /* Product.swift in Sources */,
+				F7EB54822476B68600DB2C64 /* SearchQueryResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

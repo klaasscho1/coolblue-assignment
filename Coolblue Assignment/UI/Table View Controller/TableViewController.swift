@@ -12,7 +12,7 @@ class TableViewController: UITableViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
 	let PRODUCT_CELL_ID: String = "product-display"
 	
-	var data: [Product] = []
+	var data: [SearchQueryResponse.Product] = []
 	var imageCacheForProductId = [Int : UIImage]()
 	var pagesRetrieved = 0
 	var totalProductsAvailable = 0
